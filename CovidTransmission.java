@@ -1,9 +1,19 @@
+/**
+ * Name: Bryce Ong
+ * ID: A16287711
+ * Email: bong@ucsd.edu
+ * Sources used: None
+ * 
+ * This file is used for the Covid Transmission PA.
+ * It determines the risk level of infection through the number of 
+ * minutes of contact between two people.
+ */
 import java.util.Scanner;
 
 public class CovidTransmission{
   public static void main(String[] args){
     Scanner input = new Scanner(System.in);
-    System.out.print("Input:");
+    System.out.print("");
     int D1 = input.nextInt();
     int H1 = input.nextInt();
     int M1 = input.nextInt();
