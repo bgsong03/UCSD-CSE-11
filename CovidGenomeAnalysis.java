@@ -4,8 +4,9 @@ public class CovidGenomeAnalysis {
   public static void main(String[] args){
     String new_seq = "";
     int counter = 0;
+
     Scanner scan = new Scanner(System.in);
-    System.out.print("");
+    System.out.println("");
     String seq = scan.nextLine();
 
     for (int i = 0; i < seq.length(); i++){
