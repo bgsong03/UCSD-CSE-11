@@ -2,7 +2,7 @@
  * Name: Bryce Ong
  * ID: A16287711
  * Email: bong@ucsd.edu
- * Sources used: https://jsdoc.app/tags-param.html (For )
+ * Sources used: None
  * 
  * This file is used for PA#4 Parts 1-4.
  * It is used to map out the transmission pattern of COVID
