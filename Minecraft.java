@@ -19,7 +19,25 @@ public class Minecraft {
   public static ArrayList<String> getMobsToTest(String[][] groups,
   String infected){
     if (groups != null && infected != null){
+      ArrayList<String> newList = new ArrayList<String>();
+      for (int row = 0; row < groups.length; row++){
+        for (int column = 0; column < groups[row].length; column++){
+          if (groups[row][column] == infected){
+            for (int i = 0; i < groups[row].length; i++){
+              if (groups[row][i] != null && groups[row][i] != infected){
+                newList.add(groups[row][i]);
+              }
+            }
+          }
+        }
+      }
       ArrayList<String> infectedMobs = new ArrayList<String>();
+      //Remove any duplicates
+      for (String element : newList) {
+        if (!infectedMobs.contains(element)) { 
+          infectedMobs.add(element); 
+        } 
+      } 
       return infectedMobs;
     }
     return null;
@@ -29,7 +47,7 @@ public class Minecraft {
       {"Zombie", "Cow", "Creeper", "Guardian", null, "Slime"},
       {"Sheep", "Iron Golem", "Cow"},
       {"Sheep"},
-      {"Cow", "Puf erfish", "Squid", "Sheep"}
+      {"Cow", "Pufferfish", "Squid", "Sheep"}
     };
     ArrayList<String> test = new ArrayList<String>();
     test = getMobsToTest(groups, "Sheep");
