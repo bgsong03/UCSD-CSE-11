@@ -9,13 +9,24 @@ public class Student {
   public ArrayList<ContactInfo> contactHistory;
 
   public Student(){
-
+    id = -1;
+    location = -1;
+    covidPositive = false;
+    inQuarantine = false;
+    usedIds = new ArrayList<Integer>();
+    contactHistory = new ArrayList<ContactInfo>();
   }
+
   public boolean setLocation(int newLocation){
-    return true;
+    if (newLocation >= 0 && inQuarantine == false){
+      location = newLocation;
+      return true;
+    }
+    return false;
   }
-  public void updateId(){
 
+  public void updateId(){
+    
   }
   public boolean addContactInfo(ContactInfo info){
     return true;
