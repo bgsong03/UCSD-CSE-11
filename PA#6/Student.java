@@ -26,22 +26,53 @@ public class Student {
   }
 
   public void updateId(){
-    
+    Random random = new Random();
+    id = random.nextInt(Integer.MAX_VALUE);
+    usedIds.add(id);
   }
+
   public boolean addContactInfo(ContactInfo info){
-    return true;
+    if (info != null && info.isValid()){
+      contactHistory.add(info);
+      return true;
+    }
+    return false;
   }
+
   public boolean uploadAllUsedIds(Server server){
-    return true;
+    if (server != null){
+      server.addInfectedIds(this.usedIds);
+      return true;
+    }
+    return false;
   }
+
   public boolean testPositive(Server server){
-    return true;
+    covidPositive = true;
+    inQuarantine = true;
+    return uploadAllUsedIds(server);
   }
+
   public ArrayList<ContactInfo> getRecentPositiveContacts(Server server,
   int fromTime){
-    return contactHistory;
+    if (server != null && fromTime >= 0 && server.getInfectedIds() != null){
+      ArrayList<ContactInfo> subList = new ArrayList<ContactInfo>();
+      for (ContactInfo temp : contactHistory){
+        if (temp.used == false && temp.time >= fromTime && 
+        server.getInfectedIds().contains(temp.id)){
+          subList.add(temp);
+        }
+      }
+      return subList;
+    }
+    return null;
   }
+
   public int riskCheck(Server server, int fromTime, boolean quarantineChoice){
-    return 1;
+    if (getRecentPositiveContacts(server, fromTime) == null){
+      return -1;
+    }
+    
+    return 0;
   }
 }
