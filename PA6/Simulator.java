@@ -1,3 +1,5 @@
+package PA6;
+
 /*
  * This file contains the Simulator class for CSE11's PA6 in WI21. 
  * It runs a simple Exposure Notification System simulation based 
