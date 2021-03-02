@@ -18,7 +18,7 @@ public class CellMoveDiagonal extends CellMoveUp {
     if (orientedRight == true){
       return "/";
     }
-    return "\'";
+    return "\\";
   }
 
   public boolean checkApoptosis(List<Cell> neighbors){

@@ -1,20 +1,20 @@
 import java.util.*;
 
 public class CellMoveToggleChild extends CellMoveToggle {
-  public static int numAlive = 0;
+  public static int numAlive;
   
   public CellMoveToggleChild(int currRow, int currCol, int mass){
     super(currRow, currCol, mass);
-    numAlive += 1;
+    numAlive++;
   }
 
   public CellMoveToggleChild(CellMoveToggleChild otherCellMoveToggleChild){
     super(otherCellMoveToggleChild);
-    numAlive += 1;
+    numAlive++;
   }
 
   public boolean checkApoptosis(List<Cell> neighbors){
-    if (neighbors.size() < 2 && neighbors.size() > 5 && numAlive < 10){
+    if ((neighbors.size() < 2 || neighbors.size() > 5) && numAlive < 10){
       return true;
     }
     return false;
@@ -23,6 +23,6 @@ public class CellMoveToggleChild extends CellMoveToggle {
   @Override
   public void apoptosis(){
     super.apoptosis();
-    numAlive -= 1;
+    numAlive--;
   }
 }

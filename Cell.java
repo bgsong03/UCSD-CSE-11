@@ -21,15 +21,15 @@ public abstract class Cell {
   }
 
   public Cell(Cell otherCell){
-    this.currRow = otherCell.currRow;
-    this.currCol = otherCell.currCol;
-    this.mass = otherCell.mass;
+    this.currRow = otherCell.getCurrRow();
+    this.currCol = otherCell.getCurrCol();
+    this.mass = otherCell.getMass();
   }
 
   public void apoptosis(){
-    currRow = -1;
-    currCol = -1;
-    mass = -1;
+    this.currRow = -1;
+    this.currCol = -1;
+    this.mass = -1;
     return;
   }
 
