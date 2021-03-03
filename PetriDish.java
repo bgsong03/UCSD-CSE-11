@@ -25,11 +25,12 @@ public class PetriDish {
    * dish should be filled with
    */
   public PetriDish(String[][] board) {
+    dish = new Cell[board.length][board[0].length];
     //Looping through board
     for (int i = 0; i < board.length; i++) {
       for (int j = 0; j < board[i].length; j++) {
         //If an element in board is null then it will also be null in dish
-        if (board[i][j] == null) {
+        if (board[i][j] == "null") {
           dish[i][j] = null;
         } 
         else {

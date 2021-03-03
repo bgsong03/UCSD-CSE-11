@@ -68,7 +68,6 @@ public abstract class Cell {
     this.currRow = -1;
     this.currCol = -1;
     this.mass = -1;
-    return;
   }
 
   /**
