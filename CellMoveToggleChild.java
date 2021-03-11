@@ -57,6 +57,7 @@ public class CellMoveToggleChild extends CellMoveToggle {
    * @return True or False depending on the whether the conditions for 
    * apoptosis are met
    */
+  @Override
   public boolean checkApoptosis(List<Cell> neighbors){
     //Checking if conditions are met
     if ((neighbors.size() < 2 || neighbors.size() > 5) && numAlive < 10){
@@ -74,5 +75,13 @@ public class CellMoveToggleChild extends CellMoveToggle {
     super.apoptosis();
     //Decrement numAlive everytime cell undergoes apoptosis
     numAlive--;
+  }
+
+  @Override
+  public Cell newCellCopy() {
+    CellMoveToggleChild newCell = new 
+    CellMoveToggleChild(currRow, currCol, mass);
+    newCell.toggled = this.toggled;
+    return newCell;
   }
 }

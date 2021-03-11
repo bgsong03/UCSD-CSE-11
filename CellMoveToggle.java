@@ -67,11 +67,36 @@ public class CellMoveToggle extends CellMoveUp {
    * @return True or False depending on the whether the conditions for 
    * apoptosis are met
    */
+  @Override
   public boolean checkApoptosis(List<Cell> neighbors){
     //Checking if conditions are met
     if (neighbors.size() < 2 || neighbors.size() > 5){
       return true;
     }
     return false;
+  }
+
+  @Override
+  public int[] getMove() {
+    int[] newPosition = new int[2];
+    //Move up once if toggled is true
+    if (toggled == true){
+      newPosition[0] = currRow - 1;
+      newPosition[1] = currCol;
+      toggled = false;
+      return newPosition;
+    }
+    //Remain stationary if toggled is false
+    newPosition[0] = currRow;
+    newPosition[1] = currCol;
+    toggled = false;
+    return newPosition;
+  }
+
+  @Override
+  public Cell newCellCopy() {
+    CellMoveToggle newCell = new CellMoveToggle(currRow, currCol, mass);
+    newCell.toggled = this.toggled;
+    return newCell;
   }
 }

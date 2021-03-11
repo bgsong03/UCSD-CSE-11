@@ -71,11 +71,45 @@ public class CellMoveDiagonal extends CellMoveUp {
    * @return True or False depending on the whether the conditions for 
    * apoptosis are met
    */
+  @Override
   public boolean checkApoptosis(List<Cell> neighbors){
     //Checking if conditions are met
     if (neighbors.size() > 3){
       return true;
     }
     return false;
+  }
+
+  @Override
+  public int[] getMove() {
+    int[] newPosition = new int[2];
+    //Move diagonally right if orientedRight is true
+    if (orientedRight == true){
+      newPosition[0] = currRow - 1;
+      newPosition[1] = currCol + 1;
+      diagonalMoves++;
+      //If diagonalMoves is a multiple of 4 the orientation is flipped
+      if (diagonalMoves % 4 == 0){
+        orientedRight = false;
+      }
+      return newPosition;
+    }
+    //Move diagonally left if orientedRight is false
+    newPosition[0] = currRow - 1;
+    newPosition[1] = currCol - 1;
+    diagonalMoves++;
+    //If diagonalMoves is a multiple of 4 the orientation is flipped
+    if (diagonalMoves % 4 == 0){
+      orientedRight = true;
+    }
+    return newPosition;
+  }
+
+  @Override
+  public Cell newCellCopy() {
+    CellMoveDiagonal newCell = new CellMoveDiagonal(currRow, currCol, mass);
+    newCell.orientedRight = this.orientedRight;
+    newCell.diagonalMoves = this.diagonalMoves;
+    return newCell;
   }
 }

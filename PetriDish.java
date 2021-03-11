@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * Name: Bryce Ong
  * ID: A16287711
@@ -17,6 +19,8 @@
  */
 public class PetriDish {
   public Cell[][] dish;
+  public List<Movable> movables;
+  public List<Divisible> divisibles;
 
   /**
    * This constructor initializes the information of the petridish. 
@@ -64,5 +68,26 @@ public class PetriDish {
         }
       }
     }
+  }
+
+  public List<Cell> getNeighborsOf(int row, int col){
+    List<Cell> cells = new ArrayList<Cell>();
+    return cells;
+  }
+
+  public void move(){
+
+  }
+
+  public void divide(){
+
+  }
+
+  public void update(){
+
+  }
+
+  public void iterate(){
+
   }
 }

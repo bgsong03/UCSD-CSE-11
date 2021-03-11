@@ -18,7 +18,7 @@ import java.util.*;
  * Instance variables:
  * direction - the direction the cell will divide into
  */
-public class CellDivide extends Cell implements Movable {
+public class CellDivide extends Cell implements Divisible {
   public int direction;
   
   /**
@@ -71,13 +71,37 @@ public class CellDivide extends Cell implements Movable {
     return false;
   }
 
-  public int[] getMove() {
-    return null;
-  }
-
   public Cell newCellCopy() {
     CellDivide newCell = new CellDivide(currRow, currCol, mass);
     newCell.direction = this.direction;
     return newCell;
+  }
+
+  public int[] getDivision() {
+    int[] newPosition = new int[2];
+    if (direction == 0){
+      newPosition[0] = currRow + 1;
+      newPosition[1] = currCol;
+      direction = 1;
+      return newPosition;
+    }
+    else if (direction == 1){
+      newPosition[0] = currRow - 1;
+      newPosition[1] = currCol;
+      direction = 2;
+      return newPosition;
+    }
+    else if (direction == 2){
+      newPosition[0] = currRow;
+      newPosition[1] = currCol - 1;
+      direction = 3;
+      return newPosition;
+    }
+    else{
+      newPosition[0] = currRow;
+      newPosition[1] = currCol + 1;
+      direction = 0;
+      return newPosition;
+    }
   }
 }

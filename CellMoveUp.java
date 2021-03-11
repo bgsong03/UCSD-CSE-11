@@ -66,8 +66,8 @@ public class CellMoveUp extends Cell implements Movable {
   }
 
   public int[] getMove() {
-    // TODO Auto-generated method stub
-    return null;
+    int[] newPosition = {currRow - 1, currCol};
+    return newPosition;
   }
 
   public Cell newCellCopy() {
