@@ -4,7 +4,7 @@
  * Email: bong@ucsd.edu
  * Sources used: None
  * 
- * This file is used for PA#7 Part 1. It is used to hold the information
+ * This file is used for PA#8 Part 2. It is used to hold the information
  * of the cells.
  */
 
@@ -12,7 +12,7 @@ import java.util.*;
 
 /**
  * This abstract class acts as a superclass for multiple classes in PA#7.
- * It contains 2 consctructors and 8 methods that are used to add, 
+ * It contains 2 consctructors and 10 methods that are used to add, 
  * update, and hold information regarding the cells.
  * 
  * Instance variables:
@@ -53,7 +53,7 @@ public abstract class Cell implements Comparable<Cell> {
    * This copy constructor copies the instance variables of another cell
    * and applies them to the current cell.
    * 
-   * @param otherCell - the other cell which information will be copied from
+   * @param otherCell - the other cell object
    */
   public Cell(Cell otherCell){
     this.currRow = otherCell.getCurrRow();
@@ -100,7 +100,7 @@ public abstract class Cell implements Comparable<Cell> {
   /**
    * This method updates the row value of the cell.
    *
-   * @param newRow - The new row value of the cell
+   * @param newRow - the new row value of the cell
    * @return True or False depending on the whether the method is successful
    */
   public boolean setCurrRow(int newRow){
@@ -115,7 +115,7 @@ public abstract class Cell implements Comparable<Cell> {
   /**
    * This method updates the column value of the cell.
    *
-   * @param newRow - The new column value of the cell
+   * @param newRow - the new column value of the cell
    * @return True or False depending on the whether the method is successful
    */
   public boolean setCurrCol(int newCol){
@@ -130,7 +130,7 @@ public abstract class Cell implements Comparable<Cell> {
   /**
    * This method updates the mass of the cell.
    *
-   * @param newRow - The new mass of the cell
+   * @param newRow - the new mass of the cell
    * @return True or False depending on the whether the method is successful
    */
   public boolean setMass(int newMass){
@@ -142,6 +142,13 @@ public abstract class Cell implements Comparable<Cell> {
     return false;
   }
 
+  /**
+   * This method compares the mass of a cell to another cell.
+   *
+   * @param otherCell - the other cell object
+   * @return An integer comparison value that changes value depending
+   * on whether the mass is greater, smaller, or equal
+   */
   @Override
   public int compareTo(Cell otherCell){
     Integer cellMass = this.mass;
@@ -158,6 +165,9 @@ public abstract class Cell implements Comparable<Cell> {
    */
   public abstract boolean checkApoptosis(List<Cell> neighbors);
 
+  /**
+   * This abstract method is a template that each concrete subclass 
+   * will implement with its own behavior.
+   */
   public abstract Cell newCellCopy();
-
 }

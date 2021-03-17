@@ -4,7 +4,7 @@
  * Email: bong@ucsd.edu
  * Sources used: None
  * 
- * This file is used for PA#7 Part 1. It is used to hold the information
+ * This file is used for PA#8 Part 2. It is used to hold the information
  * of CellMoveToggleChild type cells.
  */
 
@@ -57,7 +57,6 @@ public class CellMoveToggleChild extends CellMoveToggle {
    * @return True or False depending on the whether the conditions for 
    * apoptosis are met
    */
-  @Override
   public boolean checkApoptosis(List<Cell> neighbors){
     //Checking if conditions are met
     if ((neighbors.size() < 2 || neighbors.size() > 5) && numAlive < 10){
@@ -77,6 +76,11 @@ public class CellMoveToggleChild extends CellMoveToggle {
     numAlive--;
   }
 
+  /**
+   * This method creates a deep copy of a CellMoveToggleChild object.
+   *
+   * @return Deep copy of CellMoveToggleChild object
+   */
   @Override
   public Cell newCellCopy() {
     CellMoveToggleChild newCell = new 

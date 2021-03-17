@@ -4,7 +4,7 @@
  * Email: bong@ucsd.edu
  * Sources used: None
  * 
- * This file is used for PA#7 Part 1. It is used to hold the information
+ * This file is used for PA#8 Part 2. It is used to hold the information
  * of CellMoveDiagonal type cells.
  */
 
@@ -71,7 +71,6 @@ public class CellMoveDiagonal extends CellMoveUp {
    * @return True or False depending on the whether the conditions for 
    * apoptosis are met
    */
-  @Override
   public boolean checkApoptosis(List<Cell> neighbors){
     //Checking if conditions are met
     if (neighbors.size() > 3){
@@ -80,6 +79,12 @@ public class CellMoveDiagonal extends CellMoveUp {
     return false;
   }
 
+  /**
+   * This method defines how a CellMoveDiagonal type cell will move
+   * in the petri dish.
+   *
+   * @return Array containing the new position of the cell
+   */
   @Override
   public int[] getMove() {
     int[] newPosition = new int[2];
@@ -105,6 +110,11 @@ public class CellMoveDiagonal extends CellMoveUp {
     return newPosition;
   }
 
+  /**
+   * This method creates a deep copy of a CellMoveDiagonal object.
+   *
+   * @return Deep copy of CellMoveDiagonal object
+   */
   @Override
   public Cell newCellCopy() {
     CellMoveDiagonal newCell = new CellMoveDiagonal(currRow, currCol, mass);

@@ -4,7 +4,7 @@
  * Email: bong@ucsd.edu
  * Sources used: None
  * 
- * This file is used for PA#7 Part 1. It is used to hold the information
+ * This file is used for PA#8 Part 2. It is used to hold the information
  * of CellDivide type cells.
  */
 
@@ -12,7 +12,7 @@ import java.util.*;
 
 /**
  * This class acts as a subclass to the Cell class.
- * It contains 2 consctructors and 2 methods that are used hold information 
+ * It contains 2 consctructors and 2 methods that are used hold information
  * regarding CellDivide type cells.
  * 
  * Instance variables:
@@ -71,14 +71,26 @@ public class CellDivide extends Cell implements Divisible {
     return false;
   }
 
+  /**
+   * This method creates a deep copy of a CellDivide object.
+   *
+   * @return Deep copy of CellDivide object
+   */
   public Cell newCellCopy() {
     CellDivide newCell = new CellDivide(currRow, currCol, mass);
     newCell.direction = this.direction;
     return newCell;
   }
 
+  /**
+   * This method  defines where a new cell that is divided from the
+   * original calling cell will be placed.
+   *
+   * @return Array containing the position of the newly spawned cell
+   */
   public int[] getDivision() {
     int[] newPosition = new int[2];
+    //The behavior of the cell changes depending on the value of direction
     if (direction == 0){
       newPosition[0] = currRow + 1;
       newPosition[1] = currCol;

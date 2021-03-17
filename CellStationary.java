@@ -4,7 +4,7 @@
  * Email: bong@ucsd.edu
  * Sources used: None
  * 
- * This file is used for PA#7 Part 1. It is used to hold the information
+ * This file is used for PA#8 Part 2. It is used to hold the information
  * of CellStationary type cells.
  */
 
@@ -12,7 +12,7 @@ import java.util.*;
 
 /**
  * This class acts as a subclass to the Cell class.
- * It contains 2 consctructors and 2 methods that are used hold information 
+ * It contains 2 consctructors and 2 methods that are used hold information
  * regarding CellStationary type cells.
  */
 public class CellStationary extends Cell {
@@ -65,6 +65,11 @@ public class CellStationary extends Cell {
     return false;
   }
 
+  /**
+   * This method creates a deep copy of a CellStationary object.
+   *
+   * @return Deep copy of CellStationary object
+   */
   public Cell newCellCopy() {
     CellStationary newCell = new CellStationary(currRow, currCol, mass);
     return newCell;

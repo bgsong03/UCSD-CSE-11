@@ -4,7 +4,7 @@
  * Email: bong@ucsd.edu
  * Sources used: None
  * 
- * This file is used for PA#7 Part 1. It is used to hold the information
+ * This file is used for PA#8 Part 2. It is used to hold the information
  * of CellMoveUp type cells.
  */
 
@@ -65,11 +65,22 @@ public class CellMoveUp extends Cell implements Movable {
     return false;
   }
 
+  /**
+   * This method defines how a CellMoveUp type cell will move
+   * in the petri dish.
+   *
+   * @return Array containing the new position of the cell
+   */
   public int[] getMove() {
     int[] newPosition = {currRow - 1, currCol};
     return newPosition;
   }
 
+  /**
+   * This method creates a deep copy of a CellMoveUp object.
+   *
+   * @return Deep copy of CellMoveUp object
+   */
   public Cell newCellCopy() {
     CellMoveUp newCell = new CellMoveUp(currRow, currCol, mass);
     return newCell;
