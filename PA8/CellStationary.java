@@ -1,3 +1,5 @@
+package PA8;
+
 /**
  * Name: Bryce Ong
  * ID: A16287711
@@ -5,17 +7,17 @@
  * Sources used: None
  * 
  * This file is used for PA#8 Part 2. It is used to hold the information
- * of CellMoveUp type cells.
+ * of CellStationary type cells.
  */
 
 import java.util.*;
 
 /**
  * This class acts as a subclass to the Cell class.
- * It contains 2 consctructors and 2 methods that are used hold information 
- * regarding CellMoveUp type cells.
+ * It contains 2 consctructors and 2 methods that are used hold information
+ * regarding CellStationary type cells.
  */
-public class CellMoveUp extends Cell implements Movable {
+public class CellStationary extends Cell {
 
   /**
    * This constructor initializes the various information of the cell. 
@@ -25,7 +27,7 @@ public class CellMoveUp extends Cell implements Movable {
    * @param currCol - the column value of the cell
    * @param mass - the mass of the cell
    */
-  public CellMoveUp(int currRow, int currCol, int mass){
+  public CellStationary(int currRow, int currCol, int mass){
     super(currRow, currCol, mass);
   }
 
@@ -33,11 +35,11 @@ public class CellMoveUp extends Cell implements Movable {
    * This copy constructor copies the instance variables of another cell
    * and applies them to the current cell.
    * 
-   * @param otherCellMoveUp - the other cell which information will
+   * @param otherCellStationary - the other cell which information will
    * be copied from
    */
-  public CellMoveUp(CellMoveUp otherCellMoveUp){
-    super(otherCellMoveUp);
+  public CellStationary(CellStationary otherCellStationary){
+    super(otherCellStationary);
   }
 
   /**
@@ -46,7 +48,7 @@ public class CellMoveUp extends Cell implements Movable {
    * @return String representation of current object
    */
   public String toString(){
-    return "^";
+    return ".";
   }
 
   /**
@@ -59,30 +61,19 @@ public class CellMoveUp extends Cell implements Movable {
    */
   public boolean checkApoptosis(List<Cell> neighbors){
     //Checking if conditions are met
-    if (neighbors.size() != 4){
+    if (neighbors.size() <= 7 && neighbors.size() >= 3){
       return true;
     }
     return false;
   }
 
   /**
-   * This method defines how a CellMoveUp type cell will move
-   * in the petri dish.
+   * This method creates a deep copy of a CellStationary object.
    *
-   * @return Array containing the new position of the cell
-   */
-  public int[] getMove() {
-    int[] newPosition = {currRow - 1, currCol};
-    return newPosition;
-  }
-
-  /**
-   * This method creates a deep copy of a CellMoveUp object.
-   *
-   * @return Deep copy of CellMoveUp object
+   * @return Deep copy of CellStationary object
    */
   public Cell newCellCopy() {
-    CellMoveUp newCell = new CellMoveUp(currRow, currCol, mass);
+    CellStationary newCell = new CellStationary(currRow, currCol, mass);
     return newCell;
   }
 }
